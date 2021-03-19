@@ -1,48 +1,12 @@
 import React, { useState, useEffect } from "react";
-
-function Rectangle({ key, callBack, rectDimension, separator, column, row, colorToggle }) {
-  
-  const trigger =() => {
-    console.log("This is the trigger function")
-    callBack([row, column]);
-  }
-
-  if(!colorToggle){
-    console.log(`[${row}, ${column}] is false`)
-  }
-
-  return (
-    <rect
-      onClick={trigger}
-      fill={colorToggle ? "black" : "white"}
-      x={(rectDimension + separator) * column}
-      y={(rectDimension + separator) * row}
-      height={rectDimension}
-      width={rectDimension}
-    />
-  );
-}
-
-function genData(c, r) {
-    const returnArray = [];
-
-    for (let i = 0; i < r; i++) {
-      const rowArray = [];
-      for (let j = 0; j < c; j++) {
-        rowArray.push(true);
-      }
-      returnArray.push(rowArray);
-    }
-
-    return returnArray;
-  }
+import Rectangle from "./rectangle.js"
+import { genData } from "../utils/gendata.js"
+import { updateArray } from "../utils/updatearray.js"
 
 export default function Graph() {
 
   const columns = 32;
   const rows = 16;
-
-  const [data, setData] = useState(genData(columns, rows))
 
   const width = 80;
   const height = 100;
@@ -50,12 +14,15 @@ export default function Graph() {
   const rectDimension = 1;
   const separator = rectDimension / 10;
 
+  const [data, setData] = useState(genData(columns, rows))
 
   function handleClick (returnArray) {
     const tempArray = data;
     tempArray[returnArray[0]][returnArray[1]] = !(data[returnArray[0]][returnArray[1]]);
     setData([...tempArray]);
   }
+
+  
 
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox={`0 0 ${width} ${height}`}>

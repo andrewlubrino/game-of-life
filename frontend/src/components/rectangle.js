@@ -1,27 +1,19 @@
 import React, { useState, useEffect } from "react";
 
-export default function Rectangle({rectDimension, separator, column, index}) {
-
-    const [colorToggle, setToggle] = useState(true);
-    const [fillColor, setFillColor] = useState("black")
-
-    useEffect((colorToggle) => {
-        if(colorToggle){
-            setFillColor("black")
-        }
-        else{
-            setFillColor("white")
-        }
-    })
+export default function Rectangle({ callBack, rectDimension, separator, column, row, colorToggle }) {
+  
+    const trigger =() => {
+      callBack([row, column]);
+    }
   
     return (
-        <rect
-            onClick={() => setToggle(!colorToggle)}
-            x={(rectDimension + separator) * column}
-            y={(rectDimension + separator) * index}
-            height={rectDimension}
-            width={rectDimension}
-            fill={fillColor}
+      <rect
+        onClick={trigger}
+        fill={colorToggle ? "black" : "white"}
+        x={(rectDimension + separator) * column}
+        y={(rectDimension + separator) * row}
+        height={rectDimension}
+        width={rectDimension}
       />
     );
   }
