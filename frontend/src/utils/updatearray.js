@@ -26,7 +26,7 @@ function updateArray(data, columns, rows){
     let returnData = data.reduce((acc, elem) => {
         acc.push([...elem])
         return acc;
-    }, []);
+        }, []);
     for(let i = 0; i < rows; i++){
         for(let j = 0; j < columns; j++){
             const compareArr = [[i-1, i, i+1], [j-1, j, j+1]];

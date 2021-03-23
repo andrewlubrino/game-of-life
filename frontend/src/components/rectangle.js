@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import styled from '@emotion/styled'
 
 export default function Rectangle({ callBack, rectDimension, separator, column, row, colorToggle }) {
   
@@ -10,10 +11,12 @@ export default function Rectangle({ callBack, rectDimension, separator, column, 
       <rect
         onClick={trigger}
         fill={colorToggle ? "black" : "white"}
-        x={(rectDimension + separator) * column}
-        y={(rectDimension + separator) * row}
+        x={(rectDimension) * column}
+        y={(rectDimension) * row}
         height={rectDimension}
         width={rectDimension}
+        stroke="black"
+        strokeWidth={rectDimension/10}
       />
     );
   }

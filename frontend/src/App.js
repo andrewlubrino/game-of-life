@@ -1,5 +1,5 @@
 import React from "react";
-import Graph from "./components/graph.js";
+import Main from "./components/main.js"
 import {
   BrowserRouter as Router,
   Switch,
@@ -12,7 +12,7 @@ export default function App(){
     <Router>
       <Switch>
         <Route path="/">
-          <Graph />
+          <Main />
         </Route>
       </Switch>
     </Router>

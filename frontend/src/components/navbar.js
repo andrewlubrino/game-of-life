@@ -17,21 +17,12 @@ export default function Navigation() {
 
   return (
       <Navbar className="mb-3" color="light" light expand="md">
-        <NavbarBrand href="/">Andrew Lubrino</NavbarBrand>
+        <NavbarBrand href="/">Game of Life</NavbarBrand>
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
             <Nav>
               <NavItem>
-                <NavLink href="https://github.com/andrewlubrino">GitHub</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/projects">Projects</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/about">About</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/resume">Resume</NavLink>
+                <NavLink href="https://github.com/andrewlubrino/game-of-life">GitHub</NavLink>
               </NavItem>
             </Nav>
           </Collapse>
